@@ -15,17 +15,19 @@ namespace Bangazon_Financial.Actions
         {
             RevenueReportFactory revenueReportFactory = new RevenueReportFactory();
 
-            Console.WriteLine("\r\nRevenue By Customer\r\n");
+            Console.WriteLine("\r\n===================");
+            Console.WriteLine("REVENUE BY CUSTOMER");
+            Console.WriteLine("===================");
 
             List<Report> CustomerRevenueReports = new List<Report>();
 
             CustomerRevenueReports = revenueReportFactory.GetRevenueByCustomer();
 
-            Console.WriteLine("Customer                Revenue");
+            Console.WriteLine($"Customer      Revenue"); 
 
             foreach (Report report in CustomerRevenueReports)
             {
-                Console.WriteLine($"{report.Name}                ${report.Price}");
+                Console.WriteLine($"{report.Name, -10} ${report.Price, -30}");
             }
 
             Console.WriteLine("\r\nPress any key to return to the main menu");

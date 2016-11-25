@@ -14,15 +14,25 @@ namespace Bangazon_Financial.Actions
         public static void ReadInput()
         {
             ReportFactory reportFactory = new ReportFactory();
-            
-            Console.WriteLine("\r\nWeekly Report\r\n");
+
+            Console.WriteLine("\r\n===============");
+            Console.WriteLine("REVENUE BY WEEK");
+            Console.WriteLine("===============");
+
             List<Report> WeeklyReports = new List<Report>();
             WeeklyReports = reportFactory.GetWeeklyReports();
-            Console.WriteLine("Product                Quantity");
 
-            foreach(Report report in WeeklyReports)
+            if (WeeklyReports.Count == 0)
             {
-                Console.WriteLine($"{report.Name} ${report.Price}");
+                Console.WriteLine("There have been no sales this week");
+            }
+            else if (WeeklyReports.Count > 0)
+            {
+                Console.WriteLine("Product                Sales");
+                foreach (Report report in WeeklyReports)
+                {
+                    Console.WriteLine($"{report.Name} ${report.Price}");
+                }
             }
 
             Console.WriteLine("\r\nPress any key to return to the main menu");

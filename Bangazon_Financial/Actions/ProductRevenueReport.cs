@@ -15,7 +15,9 @@ namespace Bangazon_Financial.Actions
         {
             RevenueReportFactory revenueReportFactory = new RevenueReportFactory();
 
-            Console.WriteLine("\r\nRevenue By Customer\r\n");
+            Console.WriteLine("\r\n==================");
+            Console.WriteLine("REVENUE BY PRODUCT");
+            Console.WriteLine("==================");
 
             List<Report> ProductRevenueReports = new List<Report>();
 

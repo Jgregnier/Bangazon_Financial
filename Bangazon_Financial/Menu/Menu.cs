@@ -83,20 +83,20 @@ namespace Bangazon_Financial.Menu
             }
         }
 
-
         //Method Name: ShowMainMenu
         //Purpose of the Method: This method loads the main menu and handles the user input that chooses which action to preform.
         public void ShowMainMenu()
         {
             Console.Clear();
 
-            Console.WriteLine("\r\n");
-            Console.WriteLine("**  Welcome to Bangazon Financial Manager **");
+            Console.WriteLine("==========================");
+            Console.WriteLine("BANGAZON FINANCIAL REPORTS");
+            Console.WriteLine("==========================");
 
             // Display each menu item
             foreach (KeyValuePair<int, MenuItem> item in _MenuItems)
             {
-                Console.WriteLine($"\r\n{item.Key}, {item.Value.prompt}");
+                Console.WriteLine($"\r\n{item.Key}. {item.Value.prompt}");
             }
 
             Console.Write("> ");

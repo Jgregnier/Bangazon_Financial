@@ -15,14 +15,24 @@ namespace Bangazon_Financial.Actions
         {
             ReportFactory reportFactory = new ReportFactory();
 
-            Console.WriteLine("\r\nMonthly Report\r\n");
+            Console.WriteLine("\r\n==============");
+            Console.WriteLine("MONTHLY REPORT");
+            Console.WriteLine("==============");
+
             List<Report> MonthlyReports = new List<Report>();
             MonthlyReports = reportFactory.GetMonthlyReports();
-            Console.WriteLine("Product                Quantity");
 
-            foreach (Report report in MonthlyReports)
+            if (MonthlyReports.Count == 0)
             {
-                Console.WriteLine($"{report.Name}                ${report.Price}");
+                Console.WriteLine("There have been no sales this Month");
+            }
+            else if (MonthlyReports.Count > 0)
+            {
+                Console.WriteLine("Product Sales");
+                foreach (Report report in MonthlyReports)
+                {
+                    Console.WriteLine($"{report.Name} ${report.Price}");
+                }
             }
 
             Console.WriteLine("\r\nPress any key to return to the main menu");

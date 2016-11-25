@@ -23,8 +23,9 @@ namespace Bangazon_Financial.Factories
             FROM Product
             JOIN LineItem ON Product.ProductId = LineItem.ProductId
             JOIN 'Order' O ON LineItem.OrderId = O.OrderId
-            WHERE O.DateCompleted >= datetime('now', '-7 days') AND O.DateCompleted <= datetime('now', 'localtime')
+            WHERE O.DateCompleted >= datetime('now', '-6 days') AND O.DateCompleted <= datetime('now', 'localtime')
             GROUP BY Product.Name";
+
             Conn.execute(query, (SqliteDataReader reader) =>
             {
                 while (reader.Read())
@@ -40,7 +41,7 @@ namespace Bangazon_Financial.Factories
             return ReportList;
         }
     
-        //Method Name: ReadInput
+        //Method Name: GetMonthlyReports
         //Purpose of the Method: This method returns a list of reports that display the sales of all products over the past month.
         public List<Report> GetMonthlyReports()
         {
